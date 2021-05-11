@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $("ul>li").eq(0).on("click",function(){
+                alert("클릭시 경고창");
+            });
+            $("ul>li").eq(1).dblclick(function(){
+                console.dir($(this));
+            });
+            $("ul>li:gt(1)").one("click",function(){
+                alert("한번만 실행하는 경고창");
+            })
+            //제이쿼리로 선택
+
+            //style이라는 속성이 없는데 집어넣어주는것임.
+            // var l = document.querySelectorAll("li");
+            // l.style = "border:1px solid red; background : lightgreen";
+            // console.log(l);
+            
+            //원래는 javascript에서 안되는건데 제이쿼리에서 편의적으로 만든 기능임.
+            $("li").css({"border":"1px solid red","background":"lightgreen"});
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>이벤트를 추가하는 방법</h1>
+    <dl>
+        <dt>요소에 이벤트를 추가하는 방법</dt>
+        <dd>
+            <ul>
+                <li>on("이벤트명", 실행할 함수)</li>
+                <li>이벤트명(실행할함수)</li>
+                <li>one("이벤트명", 실행할 함수)</li>
+            </ul>
+        </dd>
+    </dl>
+    <ol>
+        <!--li에 클릭이벤트 걸어서 경고창 나오도록 걸어보기. 자바스크립트도 사용해보기-->
+        <li >일번</li>
+        <li>이번</li>
+        <li>삼번</li>
+        <li>사번</li>
+        <button onclick="javaEvent()">버튼</button>
+    </ol>
+    <script>
+        function javaEvent(){
+            document.querySelectorAll("li").alert("경고창");
+        }
+        // $(function(){
+        //     $("li").on("click",function () {
+        //         alert("경고창");
+        //     })
+        // })
+    </script>
+</body>
+</html>

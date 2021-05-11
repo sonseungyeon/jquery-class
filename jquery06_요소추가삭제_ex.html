@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 테이블 생성</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        th{}
+    </style>
+    <script>
+        $(function () {
+            $("button").click(function(){
+                
+                var table = $("table");
+                var rows = $("#rows");
+                var columns = $("#columns");
+                var rowsValue = rows.val();
+                var columnsValue = columns.val();
+                var thHtml = $("<th></th>");
+                var trHtml = $("<tr></tr>");
+                var tdHtml = $("<td></td>");
+                var columnCnt=0;
+                
+                for(var i=1;i<=rowsValue;i++){
+                    for(var j = 1;j<=columnsValue;j++){
+                        table.append(thHtml.text("항목"+i));
+                        trHtml.append(tdHtml.text(i+","+j));
+                        table.append(trHtml);
+                    }
+                }
+                $("table").css({"border-collapse":"collapse"});
+                $("th").css({"border":"1px solid black","background":"gray"});
+                $("tr").css({"border":"1px solid black"});
+                $("td").css({"border":"1px solid black"});
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>동적 테이블 생성</h1>
+    <input type="text" id="rows">행 
+    <input type="text" id="columns">열 
+    <button>테이블 생성</button>
+    <hr>
+    <table>
+
+    </table>
+    <hr>
+</body>
+</html>

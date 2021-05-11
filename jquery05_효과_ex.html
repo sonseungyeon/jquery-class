@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        div{width:1600px;height:50px;border:1px solid black}
+        img{border:1px solid black}
+    </style>
+    <script>
+        
+        $(function () {
+            $("div:contains('한 번만 실행')").one("click",function(){
+                alert("한번만 경고창");
+            });
+
+            $("div:contains('안녕!!!')").hover(function(){
+                $(this).css({"background":"yellow"});
+            },function(){
+                $(this).css({"background":"gray"});
+            });
+
+            $("img").hover(function(){
+                $(this).attr("src","images/car3.jpg");
+            }, function(){
+                $(this).attr("src","images/car2.jpg");
+            });
+
+            $("img").on("click",function(){
+                alert("경고창");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>한 번만 실행</div>
+    <br>
+    <div>안녕!!!</div>
+    <br>
+    <br>
+    <img src="images/car2.jpg" alt="빨간차">
+</body>
+</html>
