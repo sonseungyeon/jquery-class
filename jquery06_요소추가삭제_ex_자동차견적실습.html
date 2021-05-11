@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동차견적실습</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("table").css({"position": "absolute"});
+        });
+    </script>
+</head>
+<body>
+    <h1>자동차 견적</h1>
+    <img src="images/car1.jpg" alt="">
+    <table>
+        <tr>
+            <th>옵션</th>
+            <th>추가옵션</th>
+            <th>선택여부</th>
+        </tr>
+        <tr>
+            <td>인조가죽시트</td>
+            <td>250000</td>
+            <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>네비게이션</td>
+            <td>250000</td>
+            <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>썬루프</td>
+            <td>440000</td>
+            <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+            <th>차량금액(옵션포함)</th>
+            <th colspan="2">20500000</th>
+        </tr>
+    </table>
+</body>
+</html>
