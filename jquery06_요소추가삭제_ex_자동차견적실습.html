@@ -7,7 +7,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            $("table").css({"position": "absolute"});
+            $("table").css({"margin": "auto","border":"1px solid gray","border-collapse": "collapse","width":"600px"});
+            $("th").css({"border":"1px solid gray","background":"gray"});
+            $("td").css({"border":"1px solid gray","text-align":"center"});
+            $("h1").css({"margin":"auto","text-align":"center"});
+            $("img").css({"margin":"auto","display":"block"});
+
+            var checkbox = $("input[type=checkbox]");
+            var carPrice = $("b[name=carPrice]");
+            var optionPlus = carPrice.innerText;
+
+            var checkboxSeat = checkbox.children(0);
+            var checkboxNavi = checkbox.children(1);
+            var checkboxSun = checkbox.children(2);
+
+            var SeatCheck = checkboxSeat.checked;
+            var NaviCheck = checkboxNavi.checked;
+            var SunCheck = checkboxSun.checked;
+            
+            if(SeatCheck == true){
+                optionPlus+=250000;
+            }else if(SeatCheck == false){
+                optionPlus-=250000;
+                return false;
+            }if(NaviCheck == true){
+                optionPlus+=250000;
+            }else if(NaviCheck == false){
+                optionPlus-=250000;
+                return false;
+            }if(SunCheck == true){
+                optionPlus+=440000;
+            }else if(SunCheck == false){
+                optionPlus-=440000;
+                return false;
+            }
         });
     </script>
 </head>
@@ -36,8 +69,8 @@
             <td><input type="checkbox"></td>
         </tr>
         <tr>
-            <th>차량금액(옵션포함)</th>
-            <th colspan="2">20500000</th>
+            <td><b>차량금액(옵션포함)</b></td>
+            <td colspan="2"><b name="carPrice">20000000</b></td>
         </tr>
     </table>
 </body>
