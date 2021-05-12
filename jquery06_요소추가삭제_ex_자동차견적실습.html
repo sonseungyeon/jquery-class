@@ -14,33 +14,61 @@
             $("img").css({"margin":"auto","display":"block"});
 
             var checkbox = $("input[type=checkbox]");
-            var carPrice = $("b[name=carPrice]");
-            var optionPlus = carPrice.innerText;
 
-            var checkboxSeat = checkbox.children(0);
-            var checkboxNavi = checkbox.children(1);
-            var checkboxSun = checkbox.children(2);
-
-            var SeatCheck = checkboxSeat.checked;
-            var NaviCheck = checkboxNavi.checked;
-            var SunCheck = checkboxSun.checked;
             
-            if(SeatCheck == true){
-                optionPlus+=250000;
-            }else if(SeatCheck == false){
-                optionPlus-=250000;
-                return false;
-            }if(NaviCheck == true){
-                optionPlus+=250000;
-            }else if(NaviCheck == false){
-                optionPlus-=250000;
-                return false;
-            }if(SunCheck == true){
-                optionPlus+=440000;
-            }else if(SunCheck == false){
-                optionPlus-=440000;
-                return false;
-            }
+            checkbox.eq("0").on("click",function(){
+                var carPrice = $("b[name=carPrice]");
+                var optionPlus = Number(carPrice.text());
+                var checkboxSeat = checkbox.eq("0");
+
+                var SeatCheck = checkboxSeat.prop("checked");
+
+                if(SeatCheck == true){
+                    var seatPlus = optionPlus+250000;
+                    carPrice.text(seatPlus);
+                    console.log(seatPlus);
+                }else if(SeatCheck == false){
+                    var seatMinus = optionPlus-250000;
+                    carPrice.text(seatMinus);
+                    console.log(seatMinus);
+                }
+            });
+
+            checkbox.eq("1").on("click",function(){
+                var carPrice = $("b[name=carPrice]");
+                var optionPlus = Number(carPrice.text());
+                var checkboxNavi = checkbox.eq("1");
+
+                var NaviCheck = checkboxNavi.prop("checked");
+
+                if(NaviCheck == true){
+                    var NaviPlus = optionPlus+250000;
+                    carPrice.text(NaviPlus);
+                }else if(NaviCheck == false){
+                    var NaviMinus = optionPlus-250000;
+                    carPrice.text(NaviMinus);
+                }
+            });
+
+            checkbox.eq("2").on("click",function(){
+                var carPrice = $("b[name=carPrice]");
+                var optionPlus = Number(carPrice.text());
+                var checkboxSun = checkbox.eq("2");
+
+                var SunCheck = checkboxSun.prop("checked");
+
+                if(SunCheck == true){
+                    var SunPlus = optionPlus+440000;
+                    carPrice.text(SunPlus);
+                }else if(SunCheck == false){
+                    var SunMinus = optionPlus-440000;
+                    carPrice.text(SunMinus);
+                }
+            });
+            
+        
+            
+
         });
     </script>
 </head>
